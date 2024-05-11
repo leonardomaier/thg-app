@@ -1,9 +1,16 @@
-<div class="container">
-    <div class="menu">
-        <app-menu></app-menu>
+<div class="main">
+    <div class="header">
+        <img style="float: left;" src="assets/logo.svg">
+        <img style="float: right;" src="assets/bell.svg">
     </div>
 
-    <div class="main-content">
-        <router-outlet></router-outlet>
+    <div class="container">
+        <div class="menu">
+            <app-menu></app-menu>
+        </div>
+
+        <div class="main-content">
+            <router-outlet></router-outlet>
+        </div>
     </div>
 </div>
