@@ -1,3 +1,4 @@
 <a [routerLink]="[route]" routerLinkActive="active" class="menu-item">
-    {{ title }}
+    <img *ngIf="iconUrl" class="icon" [src]="iconUrl">
+    <span class="menu-item-title">{{ title }}</span>
 </a>

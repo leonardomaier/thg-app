@@ -3,7 +3,16 @@
     color: #4d5358;
 }
 
+.menu-item-title {
+    padding-left: 8px;
+}
+
 .active {
     color: #0F335B;
     font-weight: bold;
+}
+
+.icon {
+    top: 6px;
+    position: relative;
 }

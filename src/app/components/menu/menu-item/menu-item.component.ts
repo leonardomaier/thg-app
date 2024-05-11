@@ -10,5 +10,8 @@ export class MenuItemComponent {
   public title: string = 'Menu Item';
 
   @Input()
+  public iconUrl: string | null = null
+
+  @Input()
   public route: string = '/';
 }
