@@ -11,7 +11,7 @@
 }
 
 .header {
-  margin-bottom: 2rem;  
+  margin-bottom: 2rem;
 }
 
 .container {
@@ -22,4 +22,10 @@
 
 .main-content {
   flex-grow: 1;
+}
+
+@media screen and (max-width: 999px) {
+  .container {
+    flex-direction: column;
+  }
 }
