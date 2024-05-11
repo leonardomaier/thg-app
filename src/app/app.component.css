@@ -6,7 +6,8 @@
 .container {
   display: flex;
   flex-direction: row;
-  height: calc(100vh);
+  /* height: 100vh; */
+  /* width: 100%; */
   background-color: #EBF3FA;
   padding: 2rem;
   gap: 2rem;
