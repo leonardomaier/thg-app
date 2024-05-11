@@ -3,3 +3,21 @@
     height: 40vh;
     width: 30vw;
 }
+
+@media screen and (max-width: 999px) {
+    .chart-container {
+        width: 31vw;
+    }
+}
+
+@media screen and (max-width: 799px) {
+    .chart-container {
+        width: 38vw;
+    }
+}
+
+@media screen and (max-width: 499px) {
+    .chart-container {
+        width: 76vw;
+    }
+}

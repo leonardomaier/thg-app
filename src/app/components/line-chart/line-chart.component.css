@@ -1,5 +1,23 @@
 .chart-container {
     position: relative;
     height: 40vh;
-    width: 30vw;
+    width: 33vw;
+}
+
+@media screen and (max-width: 999px) {
+    .chart-container {
+        width: 60vw;
+    }
+}
+
+@media screen and (max-width: 799px) {
+    .chart-container {
+        width: 76vw;
+    }
+}
+
+@media screen and (max-width: 499px) {
+    .chart-container {
+        width: 76vw;
+    }
 }
