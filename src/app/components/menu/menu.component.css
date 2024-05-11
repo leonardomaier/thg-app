@@ -1,0 +1,17 @@
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 10rem;
+    height: 97.5vh;
+    background-color: #E3EFF8;
+    padding-top: 1.5rem;
+    padding-left: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid #D9E7F5;
+}
+
+.menu-footer {
+    position: absolute;
+    bottom: 0;
+}

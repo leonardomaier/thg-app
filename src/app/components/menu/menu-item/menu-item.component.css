@@ -1,0 +1,9 @@
+.menu-item {
+    text-decoration: none;
+    color: #4d5358;
+}
+
+.active {
+    color: #0F335B;
+    font-weight: bold;
+}

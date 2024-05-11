@@ -1,0 +1,17 @@
+* {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh);
+  background-color: #EBF3FA;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.main-content {
+  flex-grow: 1;
+}
