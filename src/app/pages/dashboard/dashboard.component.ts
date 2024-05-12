@@ -19,20 +19,22 @@ export class DashboardComponent implements OnInit {
   public constructor(private dataService: DataService) { }
 
   public ngOnInit(): void {
-    this.fetchData();
+    this.init();
   }
 
-  public async fetchData() {
-    const [populationData, carsPerHouseholdData]: APIResult[] = await Promise.all([
-      await lastValueFrom(this.dataService.getPopulation()),
-      await lastValueFrom(this.dataService.getCarsPerHousehold()),
-    ]);
+  public async init() {
+    this.setupLineChart();
+    this.setupPieChart();
+  }
+
+  private async setupLineChart(): Promise<void> {
+    const response = await lastValueFrom(this.dataService.getPopulation());
 
     this.lineChartData = {
       labels: ['2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021'],
-      datasets: Object.keys(populationData.data).map(state => {
+      datasets: Object.keys(response.data).map(state => {
         const { backgroundColor, borderColor } = this.getColorByState(state);
-        const values = populationData.data[state].map(([_, population]: [string, number]) => population);
+        const values = response.data[state].map(([_, population]: [string, number]) => population);
         return {
           label: state,
           data: values,
@@ -42,13 +44,16 @@ export class DashboardComponent implements OnInit {
         }
       })
     };
+  }
 
+  private async setupPieChart(): Promise<void> {
+    const response = await lastValueFrom(this.dataService.getCarsPerHousehold());
     this.pieChartData = {
-      labels: carsPerHouseholdData.data['labels'],
+      labels: response.data['labels'],
       datasets: [
         {
           label: 'Quantity',
-          data: carsPerHouseholdData.data['quantity']
+          data: response.data['quantity']
         }
       ]
     };

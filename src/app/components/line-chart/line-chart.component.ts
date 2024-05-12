@@ -13,6 +13,10 @@ export class LineChartComponent {
 
   @Input()
   public set data(value: ChartData) {
+    if (value.datasets.length <= 0) {
+      return;
+    }
+    
     this._data = value;
     this.initChart();
   }
