@@ -52,7 +52,7 @@ export class LineChartComponent {
         plugins: {
           title: {
             display: true,
-            text: 'Population of Alabama, Florida and California'
+            text: this.title
           }
         }
       },

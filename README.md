@@ -1,27 +1,48 @@
-# ThgDashboard
+# How to run
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+If you have Docker installed, you just need to run in the root folder:
 
-## Development server
+```bash
+docker-compose -f docker-compose.yml up --build
+```
+Otherwise, you're gonna need to install the dependencies and run the local server manually by executing:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+```bash
+npm install
+npm start
+```
 
-## Code scaffolding
+# Notes
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## User Interface
 
-## Build
+To organize the Dashboard page, I divided it into two parts: the side menu and the main content area where the chart appears.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+The side menu has three parts:
 
-## Running unit tests
+- `menu.component.ts`
+- `menu-item.component.ts`
+- `user-profile.component.ts`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+The `menu-item.component.ts` is part of the Menu component, making it easy to add new menu items later.
 
-## Running end-to-end tests
+I also made a component named `user-profile.component.ts`. It's used in the menu, but it's not considered a subcomponent because it could show the logged-in user in different parts of the app, like the top right corner.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+I also created components for the charts:
 
-## Further help
+- `line-chart.component.ts`
+- `pie-chart.component.ts`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Both charts start with preset configurations. We only need to provide the data in this format:
+
+```ts
+{ labels: [], datasets: [] }: ChartData
+```
+
+Lastly, in the `app/pages` folder, we have the only page available:
+
+- `dashboard.component.ts`
+
+This is where the app contacts the API to fetch data for both charts. The `data.service.ts` file contains methods for consuming the API to retrieve all metrics.
+
+Due to time constraints, I chose not to prioritize writing tests or implementing linting tools and similar tasks. However, we can discuss these further in a meeting. My aim was to keep things as simple as possible and fulfill the requirements outlined in the document.

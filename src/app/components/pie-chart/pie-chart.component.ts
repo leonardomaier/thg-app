@@ -46,7 +46,7 @@ export class PieChartComponent {
           },
           title: {
             display: true,
-            text: 'Cars per household in USA 2021'
+            text: this.title
           }
         }
       },
