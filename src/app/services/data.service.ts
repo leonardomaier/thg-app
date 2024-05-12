@@ -8,7 +8,7 @@ export interface APIResult {
 
 @Injectable()
 export class DataService {
-    public baseUrl = 'http://127.0.0.1:8000';
+    public baseUrl = 'http://localhost:80';
 
     public constructor(private http: HttpClient) { }
 
