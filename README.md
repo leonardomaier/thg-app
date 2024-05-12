@@ -1,6 +1,6 @@
 # How to run
 
-If you have Docker installed, you just need to run in the root folder:
+If you have Docker installed, you just need to run the command below in the root folder:
 
 ```bash
 docker-compose -f docker-compose.yml up --build
@@ -11,6 +11,7 @@ Otherwise, you're gonna need to install the dependencies and run the local serve
 npm install
 npm start
 ```
+Finally access `http://localhost:4200`
 
 # Notes
 
