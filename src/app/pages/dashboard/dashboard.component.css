@@ -19,6 +19,7 @@
 
 @media screen and (max-width: 999px) {
     .container {
+        height: inherit;
         flex-direction: column;
         align-items: center;
     }

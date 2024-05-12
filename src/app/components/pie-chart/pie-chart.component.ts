@@ -1,49 +1,45 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Chart } from 'chart.js/auto';
+import { Chart, ChartData } from 'chart.js/auto';
 
 @Component({
   selector: 'app-pie-chart',
   templateUrl: './pie-chart.component.html',
   styleUrls: ['./pie-chart.component.css']
 })
-export class PieChartComponent implements OnInit {
+export class PieChartComponent {
 
   @Input()
   public title: string = 'My Pie Chart';
 
-  public pieChart: any = [];
+  @Input()
+  public labels: string[] = []
 
-  public ngOnInit(): void {
+  @Input()
+  public set data(value: ChartData) {
+    this._data = value;
     this.initChart();
   }
 
+  private _initialized = false;
+
+  private _data: ChartData = { labels: [], datasets: [] };
+
+  public pieChart: any = [];
+
   private initChart() {
+    if (this._initialized) return;
+
+    this._initialized = true
+
     this.pieChart = new Chart('pie-chart', {
       type: 'pie',
-      data: {
-        // labels: ['Red', 'Orange', 'Yellow', 'Green', 'Blue'],
-        datasets: [
-          {
-            label: 'Dataset 1',
-            data: [2, 52, 90, 32, 130],
-            backgroundColor: [
-              'rgb(255, 99, 132)',
-              'rgb(255, 159, 64)',
-              'rgb(255, 205, 86)',
-              'rgb(75, 192, 192)',
-              'rgb(54, 162, 235)',
-              'rgb(153, 102, 255)',
-              'rgb(201, 203, 207)'
-            ],
-          }
-        ]
-      },
+      data: this._data,
       options: {
         responsive: true,
         plugins: {
-          // legend: {
-          //   position: 'top',
-          // },
+          legend: {
+            display: false
+          },
           title: {
             display: true,
             text: 'Cars per household in USA 2021'
