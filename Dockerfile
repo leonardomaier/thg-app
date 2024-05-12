@@ -1,13 +1,17 @@
-FROM node:alpine
+FROM node:16-alpine AS build
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
-COPY . /usr/src/app
-
-RUN npm install -g @angular/cli
+COPY . .
 
 RUN npm install
 
 RUN npm run build --prod
 
-CMD ["ng", "serve", "--host", "0.0.0.0"]
+FROM nginx:alpine
+
+COPY --from=build /app/dist/thg-dashboard/ /usr/share/nginx/html
+
+COPY /nginx.conf  /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
